@@ -1,0 +1,30 @@
+create database task3_meetingApp;
+
+use task3_meetingApp;
+
+create table teams(
+team_code int auto_increment,
+team_name  varchar(255),
+primary key(team_code));
+
+create table meetings(
+number_meeting int auto_increment,
+team_code  int,
+date_start datetime,
+date_end datetime,
+m_description varchar(255),
+room_meeting varchar(255),
+FOREIGN KEY (team_code) REFERENCES teams(team_code),
+primary key(number_meeting));
+
+
+
+INSERT INTO teams (team_name)
+VALUES ("react team"), ("nodejs team"), ("angular team"), ("css team"), ("javascript team");
+
+INSERT INTO meetings (team_code, date_start,  date_end, m_description, room_meeting)
+VALUES (1, '2021-06-03 09:00:00', '2021-06-03 10:00:00', "chose comp", "blue room"),
+(2, '2021-06-05 11:00:00', '2021-06-05 12:30:00', "chose route", "grey room"),
+(3, '2021-07-01 14:30:00', '2021-07-01 16:30:00', "chose ui", "white room"),
+(4, '2021-06-23 14:00:00', '2021-06-23 14:45:00', "grid practice", "black room"),
+(5, '2021-06-10 08:00:00', '2021-06-10 10:30:00', "ECMA 6", "green room");
